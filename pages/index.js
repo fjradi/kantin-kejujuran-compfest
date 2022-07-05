@@ -70,8 +70,9 @@ const getServerSideProps = async ({query}) => {
     order = "asc";
   }
 
+  const domain = process.env.NODE_ENV !== 'production' ? 'http://localhost:3000' : 'https://kantin-kejujuran-compfest-ain7rz8dm-fjradi.vercel.app';
   const res = await fetch(
-    `http://localhost:3000/api/items?sort_by=${sortBy}&order=${order}`
+    `${domain}/api/items?sort_by=${sortBy}&order=${order}`
   );
   const items = (await res.json()).map((item) => ({
     id: item.id,
