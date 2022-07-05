@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SettingItem from "./SettingItem";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const SettingList = ({ settingItems, onChangeHandler, refreshBalance }) => {
   const [balance, setBalance] = useState(0);
@@ -48,9 +49,11 @@ const SettingList = ({ settingItems, onChangeHandler, refreshBalance }) => {
             isSelected={selectedSetting === index}
           />
         ))}
-        <a href="/api/logout">
-          <SettingItem title="Sign Out" icon="/images/icon-sign-out.png" />
-        </a>
+        <Link href="/api/logout">
+          <a>
+            <SettingItem title="Sign Out" icon="/images/icon-sign-out.png" />
+          </a>
+        </Link>
       </ul>
     </div>
   );
